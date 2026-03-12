@@ -3,33 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minavoice Maaş Sistemi</title>
+    <title>Minavoice Maaş Politikası</title>
     <style>
-        body { font-family: sans-serif; background-color: #000; color: white; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #000; color: white; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        .main-header { width: 100%; max-width: 500px; background: linear-gradient(135deg, #1e5cf1, #a349eb); color: white; padding: 25px 10px; border-radius: 15px; text-align: center; margin-bottom: 20px; font-weight: bold; border: 2px solid #d4af37; text-transform: uppercase; }
         
-        /* Başlık - Mavi/Mor Gradyan */
-        .main-header { width: 100%; max-width: 500px; background: linear-gradient(to right, #1e5cf1, #a349eb); color: white; padding: 20px 10px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: bold; border: 1px solid #d4af37; text-transform: uppercase; }
-        
-        /* Seviye Kartları - Gold Stil */
-        .level-card { width: 100%; max-width: 480px; background-color: #111; border: 2px solid #d4af37; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); }
-        .level-title { background: #d4af37; color: #000; font-weight: bold; text-align: center; padding: 8px; font-size: 16px; }
+        /* Seviye Kartları */
+        .level-card { width: 100%; max-width: 480px; background-color: #111; border: 2px solid #d4af37; border-radius: 12px; margin-bottom: 15px; overflow: hidden; }
+        .level-title { background: #d4af37; color: #000; font-weight: bold; text-align: center; padding: 10px; font-size: 16px; }
         .card-body { padding: 15px; text-align: center; }
-        .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #222; padding: 8px 0; }
+        .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #222; padding: 10px 0; }
         .label { color: #888; font-size: 12px; font-weight: bold; }
         .value { color: #fff; font-size: 15px; font-weight: bold; }
-        
-        /* Maaş Alanı - Gold */
-        .salary-row { background: #d4af37; color: #000; padding: 12px; text-align: center; font-weight: bold; font-size: 20px; border-top: 1px solid #b8860b; }
-        .salary-label { font-size: 11px; display: block; opacity: 0.8; margin-bottom: 2px; }
+        .salary-row { background: #d4af37; color: #000; padding: 12px; text-align: center; font-weight: bold; font-size: 22px; }
+        .salary-label { font-size: 11px; display: block; opacity: 0.8; }
 
-        /* Kurallar Kutusu - Gold */
-        .rules-wrapper { width: 100%; max-width: 480px; background-color: #d4af37; color: #000; border-radius: 12px; padding: 20px; margin-top: 10px; box-sizing: border-box; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .rules-title { font-weight: bold; font-size: 22px; text-align: center; margin-bottom: 15px; border-bottom: 2px solid rgba(0,0,0,0.2); padding-bottom: 10px; }
-        .rules-section { margin-bottom: 20px; }
-        .rules-section-title { font-weight: bold; font-size: 16px; text-decoration: underline; display: block; margin-bottom: 8px; }
-        .rules-content { font-size: 12px; line-height: 1.5; font-weight: 500; }
-        .rules-content p { margin: 8px 0; }
-        .important { background: rgba(255,255,255,0.4); padding: 2px 4px; border-radius: 3px; font-weight: bold; }
+        /* Kurallar Alanı */
+        .rules-wrapper { width: 100%; max-width: 480px; background-color: #d4af37; color: #000; border-radius: 15px; padding: 25px; margin-top: 15px; box-sizing: border-box; margin-bottom: 50px; }
+        .rules-title { font-weight: bold; font-size: 24px; text-align: center; margin-bottom: 20px; border-bottom: 2px solid rgba(0,0,0,0.1); padding-bottom: 10px; }
+        .rules-section { margin-bottom: 25px; }
+        .rules-section-title { font-weight: bold; font-size: 17px; text-decoration: underline; display: block; margin-bottom: 10px; }
+        .rules-content { font-size: 13px; line-height: 1.6; font-weight: 500; }
+        .rules-content p { margin: 10px 0; }
     </style>
 </head>
 <body>
@@ -38,13 +33,6 @@
 
     <script>
         const levels = [
-            {n:1, e:"40.000", m:"0.25$"}, {n:2, e:"160.000", m:"1.00$"}, {n:3, e:"400.000", m:"2.50$"},
-            {n:4, e:"800.000", m:"5.00$"}, {n:5, e:"1.600.000", m:"10.00$"}, {n:6, e:"3.200.000", m:"20.00$"},
-            {n:10, e:"24.000.000", m:"150.00$"}, {n:20, e:"400.000.000", m:"2500.00$"}
-        ];
-        // Not: Burada kısa tuttum ama sen yapıştırınca 1-20 arası hepsi görseldeki gibi görünecek.
-        // Aşağıdaki döngü tüm 20 seviyeyi otomatik oluşturur.
-        const fullLevels = [
             ["1","40.000","0.25$"], ["2","160.000","1.00$"], ["3","400.000","2.50$"], ["4","800.000","5.00$"],
             ["5","1.600.000","10.00$"], ["6","3.200.000","20.00$"], ["7","4.800.000","30.00$"], ["8","8.000.000","50.00$"],
             ["9","16.000.000","100.00$"], ["10","24.000.000","150.00$"], ["11","32.000.000","200.00$"], ["12","48.000.000","300.00$"],
@@ -52,7 +40,7 @@
             ["17","200.000.000","1250.00$"], ["18","240.000.000","1500.00$"], ["19","320.000.000","2000.00$"], ["20","400.000.000","2500.00$"]
         ];
 
-        fullLevels.forEach(l => {
+        levels.forEach(l => {
             document.write(`
                 <div class="level-card">
                     <div class="level-title">SEVİYE NO.${l[0]}</div>
@@ -95,13 +83,14 @@
                 <p>Yayıncılar maaşı altın coin veya nakit olarak çekebilirler; eğer yayıncı maaşı nakit olarak almak isterse, maaşı takım satıcısına aktarmayı seçebilir.</p>
                 <p>Maaş 10 Doların altındaysa sadece altın coin ödenir.</p>
                 <p><b>Odada kalın ve günde 2 saat mikrofonu açın, bu 1 geçerli aktif gün sayılacaktır.</b></p>
-                <p>Herhangi bir ihlal varsa (birden fazla hesap, sahte işe alım, kötü niyetli iade vb.), yetkililer işbirliğini sonlandırma ve maaşı kesme hakkına sahiptir.</p>
-                <p>Mina kullanıcılarını başka uygulamalara davet edenlerin <span class="important">cihazı yasaklanır</span> ve maaşlarına el konulur.</p>
-                <p>Birden fazla hesapla farklı takımlara katılım yasaktır; tespit edilirse ödemeler durdurulur.</p>
+                <p>Herhangi bir ihlal varsa (yayın yapmak için birden fazla hesap oluşturmak veya sahte işe alım görevleri, kötü niyetli iade vb.), yetkililer işbirliğini sonlandırma ve maaşı kesme hakkına sahiptir.</p>
+                <p>Herhangi bir kullanıcının Mina kullanıcılarını başka uygulamalara davet ettiği tespit edilirse, Mina kullanıcının cihazını yasaklama ve maaşlarını tüm ilişkili hesaplarından alıkoyma hakkına sahiptir.</p>
+                <p>Kullanıcıların birden fazla hesap oluşturmasına ve farklı Acente/BD/Yönetici Takımlarına katılmasına izin verilmez. Bu tespit edilirse, ilgili hesaplardan ödemeyi devre dışı bırakma, aktarma veya alıkoyma hakkını saklı tutarız.</p>
             </div>
         </div>
     </div>
 
-    <div style="color: #444; font-size: 10px; margin-bottom: 20px;">MINAVOICE OFFICIAL SUPPORT</div>
+    <div style="color: #444; font-size: 11px; margin-bottom: 30px;">MINAVOICE OFFICIAL SUPPORT</div>
 </body>
 </html>
+
