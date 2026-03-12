@@ -3,48 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minavoice 2026 Maaş Politikası</title>
+    <title>Minavoice Maaş Politikası</title>
     <style>
-        body { font-family: sans-serif; background-color: #000000; color: white; margin: 0; padding: 10px; display: flex; justify-content: center; }
-        .wrapper { width: 100%; max-width: 500px; background-color: #000000; border: 2px solid #ff7800; border-radius: 10px; overflow: hidden; }
-        .header { background: linear-gradient(to bottom, #1e5cf1, #a349eb); color: white; text-align: center; padding: 15px; font-weight: bold; border-bottom: 2px solid #ff7800; font-size: 14px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 5px; }
-        th { background-color: #ff7800; color: white; padding: 10px 5px; border: 1px solid #000; font-size: 12px; }
-        td { padding: 4px; text-align: center; }
-        .row-box { background-color: #ff7800; color: white; font-weight: bold; border-radius: 5px; padding: 6px; border: 1px solid #4a2c00; font-size: 13px; }
-        .rules-container { background-color: #ff7800; color: white; margin: 15px; padding: 15px; border-radius: 10px; text-align: center; }
-        .rules-title { font-weight: bold; font-size: 16px; margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 5px; }
-        .rules-content { font-size: 12px; line-height: 1.5; }
-        .highlight { font-weight: bold; text-decoration: underline; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #000000; color: white; margin: 0; padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        .wrapper { width: 100%; max-width: 500px; background-color: #000; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.5); border: 1px solid #333; }
+        
+        /* Resmi Destek Merkezi Stili Başlık */
+        .header { background: linear-gradient(135deg, #1e5cf1, #a349eb); color: white; text-align: center; padding: 25px 15px; font-weight: bold; font-size: 18px; border-bottom: 3px solid #ff7800; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Tablo Stili */
+        table { width: 100%; border-collapse: collapse; background-color: #000; }
+        th { background-color: #111; color: #ff7800; padding: 15px 5px; border: 1px solid #333; font-size: 13px; text-transform: uppercase; }
+        td { padding: 6px; border: 1px solid #222; text-align: center; }
+        
+        /* Destek Merkezindeki gibi temiz kutular */
+        .row-box { background-color: #ff7800; color: white; font-weight: bold; border-radius: 8px; padding: 10px 2px; font-size: 13px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transition: 0.3s; }
+        
+        /* Kurallar Alanı - Destek Merkezi Kutusu gibi */
+        .rules-wrapper { padding: 15px; }
+        .rules-container { background-color: #1a1a1a; border-left: 5px solid #ff7800; border-radius: 10px; padding: 20px; margin-top: 10px; }
+        .rules-title { color: #ff7800; font-weight: bold; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; border-bottom: 1px solid #333; padding-bottom: 8px; }
+        .rules-content { color: #ccc; font-size: 13px; line-height: 1.7; text-align: left; }
+        .highlight { color: #fff; font-weight: bold; }
+        
+        footer { margin-top: 20px; color: #555; font-size: 12px; }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <div class="header">AJANS VE YAYINCI MAAŞ KURALLARI POLİTİKASI</div>
+        <div class="header">MINAVOICE 2026<br>YAYINCI MAAŞ POLİTİKASI</div>
+        
         <table>
             <thead>
-                <tr><th>SEVİYE</th><th>ELMAS HEDEFİ</th><th>TOPLAM MAAŞ</th></tr>
+                <tr>
+                    <th>SEVİYE</th>
+                    <th>ELMAS HEDEFİ</th>
+                    <th>MAAŞ (USD)</th>
+                </tr>
             </thead>
             <tbody>
                 <tr><td><div class="row-box">1</div></td><td><div class="row-box">40.000</div></td><td><div class="row-box">0.25$</div></td></tr>
                 <tr><td><div class="row-box">2</div></td><td><div class="row-box">160.000</div></td><td><div class="row-box">1.00$</div></td></tr>
-                <tr><td><div class="row-box">3</div></td><td><div class="row-box">400.000</div></td><td><div class="row-box">2.50$</div></td></tr>
+                <tr><td><div class="row-box">3</div></td><td><div class="box">400.000</div></td><td><div class="row-box">2.50$</div></td></tr>
                 <tr><td><div class="row-box">4</div></td><td><div class="row-box">800.000</div></td><td><div class="row-box">5.00$</div></td></tr>
                 <tr><td><div class="row-box">5</div></td><td><div class="row-box">1.600.000</div></td><td><div class="row-box">10.00$</div></td></tr>
                 <tr><td><div class="row-box">10</div></td><td><div class="row-box">24.000.000</div></td><td><div class="row-box">150.00$</div></td></tr>
                 <tr><td><div class="row-box">20</div></td><td><div class="row-box">400.000.000</div></td><td><div class="row-box">2500.00$</div></td></tr>
             </tbody>
         </table>
-        <div class="rules-container">
-            <div class="rules-title">Coin ve Elmas Detayları</div>
-            <div class="rules-content">
-                <p><span class="highlight">Resmi Kur:</span> 1 Dolar = 70.000 Coin</p>
-                <p><b>Yayıncı Kazancı:</b> 1 Coin = 1 Puan & 1 Elmas. 10 Coin Şanslı = 1 Puan.</p>
-                <p><b>Maaş:</b> 160.000 Elmas = 1 Dolar. 1 Elmas = 0.47 Coin.</p>
-                <p><b>Aktif Gün:</b> Günde 2 saat mikrofon açmak 1 gün sayılır.</p>
-                <p><span class="highlight">DİKKAT:</span> Başka uygulamaya davet ve sahte hesap yasaktır, cihazınız yasaklanır!</p>
+
+        <div class="rules-wrapper">
+            <div class="rules-container">
+                <div class="rules-title">⚠️ Coin ve Elmas Kuralları</div>
+                <div class="rules-content">
+                    <p><span class="highlight">Resmi Kur:</span> 1 Dolar = 70.000 Coin.</p>
+                    <p>• 1 Coinlik normal hediye = 1 Puan & 1 Elmas.</p>
+                    <p>• 10 Coinlik şanslı hediye = 1 Puan.</p>
+                    <p><span class="highlight">Maaş Çekimi:</span> 160.000 Elmas = 1 Dolar. 1 Elmas = 0.47 Coin.</p>
+                    <p>• Günde 2 saat mikrofon açmak <span class="highlight">1 Aktif Gün</span> sayılır.</p>
+                    <p>• Başka uygulamalara davet ve kural ihlali durumunda cihaz yasaklanır.</p>
+                </div>
             </div>
         </div>
     </div>
+    <footer>© 2026 Minavoice Official Support</footer>
 </body>
 </html>
+
