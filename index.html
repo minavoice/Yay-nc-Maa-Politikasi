@@ -3,71 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minavoice Maaş Politikası</title>
+    <title>Minavoice Maaş Sistemi</title>
     <style>
         body { font-family: sans-serif; background-color: #000; color: white; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
-        .main-header { width: 100%; max-width: 500px; background: linear-gradient(to right, #1e5cf1, #a349eb); color: white; padding: 20px 10px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: bold; border: 1px solid #ff7800; text-transform: uppercase; }
         
-        /* Kart Yapısı */
-        .level-card { width: 100%; max-width: 480px; background-color: #111; border: 2px solid #ff7800; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(255,120,0,0.2); }
-        .level-title { background: #ff7800; color: white; font-weight: bold; text-align: center; padding: 8px; font-size: 16px; }
+        /* Başlık - Mavi/Mor Gradyan */
+        .main-header { width: 100%; max-width: 500px; background: linear-gradient(to right, #1e5cf1, #a349eb); color: white; padding: 20px 10px; border-radius: 10px; text-align: center; margin-bottom: 20px; font-weight: bold; border: 1px solid #d4af37; text-transform: uppercase; }
+        
+        /* Seviye Kartları - Gold Stil */
+        .level-card { width: 100%; max-width: 480px; background-color: #111; border: 2px solid #d4af37; border-radius: 12px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2); }
+        .level-title { background: #d4af37; color: #000; font-weight: bold; text-align: center; padding: 8px; font-size: 16px; }
         .card-body { padding: 15px; text-align: center; }
         .data-row { display: flex; justify-content: space-between; border-bottom: 1px solid #222; padding: 8px 0; }
-        .label { color: #aaa; font-size: 12px; font-weight: bold; }
-        .value { color: #fff; font-size: 14px; font-weight: bold; }
-        .salary-row { background: #ff7800; color: white; padding: 12px; text-align: center; font-weight: bold; font-size: 20px; }
-        .salary-label { font-size: 11px; display: block; opacity: 0.9; margin-bottom: 2px; }
+        .label { color: #888; font-size: 12px; font-weight: bold; }
+        .value { color: #fff; font-size: 15px; font-weight: bold; }
+        
+        /* Maaş Alanı - Gold */
+        .salary-row { background: #d4af37; color: #000; padding: 12px; text-align: center; font-weight: bold; font-size: 20px; border-top: 1px solid #b8860b; }
+        .salary-label { font-size: 11px; display: block; opacity: 0.8; margin-bottom: 2px; }
 
-        /* Kurallar Kutusu */
-        .rules-container { width: 100%; max-width: 480px; background-color: #ff7800; color: white; border-radius: 12px; padding: 20px; margin-top: 10px; box-sizing: border-box; }
-        .rules-title { font-weight: bold; font-size: 20px; text-align: center; margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 10px; }
-        .rules-content { font-size: 12px; line-height: 1.6; }
-        .rules-content p { margin: 12px 0; }
-        .highlight { background: rgba(0,0,0,0.2); padding: 2px 5px; border-radius: 3px; font-weight: bold; }
+        /* Kurallar Kutusu - Gold */
+        .rules-wrapper { width: 100%; max-width: 480px; background-color: #d4af37; color: #000; border-radius: 12px; padding: 20px; margin-top: 10px; box-sizing: border-box; margin-bottom: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .rules-title { font-weight: bold; font-size: 22px; text-align: center; margin-bottom: 15px; border-bottom: 2px solid rgba(0,0,0,0.2); padding-bottom: 10px; }
+        .rules-section { margin-bottom: 20px; }
+        .rules-section-title { font-weight: bold; font-size: 16px; text-decoration: underline; display: block; margin-bottom: 8px; }
+        .rules-content { font-size: 12px; line-height: 1.5; font-weight: 500; }
+        .rules-content p { margin: 8px 0; }
+        .important { background: rgba(255,255,255,0.4); padding: 2px 4px; border-radius: 3px; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <div class="main-header">MINAVOICE YAYINCI MAAŞ SİSTEMİ</div>
+    <div class="main-header">AJANS VE YAYINCI MAAŞ KURALLARI POLİTİKASI</div>
 
     <script>
         const levels = [
             {n:1, e:"40.000", m:"0.25$"}, {n:2, e:"160.000", m:"1.00$"}, {n:3, e:"400.000", m:"2.50$"},
             {n:4, e:"800.000", m:"5.00$"}, {n:5, e:"1.600.000", m:"10.00$"}, {n:6, e:"3.200.000", m:"20.00$"},
-            {n:7, e:"4.800.000", m:"30.00$"}, {n:8, e:"8.000.000", m:"50.00$"}, {n:9, e:"16.000.000", m:"100.00$"},
-            {n:10, e:"24.000.000", m:"150.00$"}, {n:11, e:"32.000.000", m:"200.00$"}, {n:12, e:"48.000.000", m:"300.00$"},
-            {n:13, e:"64.000.000", m:"400.00$"}, {n:14, e:"80.000.000", m:"500.00$"}, {n:15, e:"128.000.000", m:"800.00$"},
-            {n:16, e:"160.000.000", m:"1000.00$"}, {n:17, e:"200.000.000", m:"1250.00$"}, {n:18, e:"240.000.000", m:"1500.00$"},
-            {n:19, e:"320.000.000", m:"2000.00$"}, {n:20, e:"400.000.000", m:"2500.00$"}
+            {n:10, e:"24.000.000", m:"150.00$"}, {n:20, e:"400.000.000", m:"2500.00$"}
+        ];
+        // Not: Burada kısa tuttum ama sen yapıştırınca 1-20 arası hepsi görseldeki gibi görünecek.
+        // Aşağıdaki döngü tüm 20 seviyeyi otomatik oluşturur.
+        const fullLevels = [
+            ["1","40.000","0.25$"], ["2","160.000","1.00$"], ["3","400.000","2.50$"], ["4","800.000","5.00$"],
+            ["5","1.600.000","10.00$"], ["6","3.200.000","20.00$"], ["7","4.800.000","30.00$"], ["8","8.000.000","50.00$"],
+            ["9","16.000.000","100.00$"], ["10","24.000.000","150.00$"], ["11","32.000.000","200.00$"], ["12","48.000.000","300.00$"],
+            ["13","64.000.000","400.00$"], ["14","80.000.000","500.00$"], ["15","128.000.000","800.00$"], ["16","160.000.000","1000.00$"],
+            ["17","200.000.000","1250.00$"], ["18","240.000.000","1500.00$"], ["19","320.000.000","2000.00$"], ["20","400.000.000","2500.00$"]
         ];
 
-        levels.forEach(l => {
+        fullLevels.forEach(l => {
             document.write(`
                 <div class="level-card">
-                    <div class="level-title">NO.${l.n}</div>
+                    <div class="level-title">SEVİYE NO.${l[0]}</div>
                     <div class="card-body">
-                        <div class="data-row"><span class="label">ELMAS HEDEFİ</span><span class="value">${l.e}</span></div>
+                        <div class="data-row"><span class="label">ELMAS HEDEFİ</span><span class="value">${l[1]}</span></div>
                     </div>
-                    <div class="salary-row"><span class="salary-label">TOPLAM MAAŞ</span>${l.m}</div>
+                    <div class="salary-row"><span class="salary-label">TOPLAM MAAŞ</span>${l[2]}</div>
                 </div>
             `);
         });
     </script>
 
-    <div class="rules-container">
-        <div class="rules-title">Coin ve Elmas Kuralları</div>
-        <div class="rules-content">
-            <p><span class="highlight">Resmi Kur:</span> 1 Dolar = 70.000 Coin.</p>
-            <p>• Yayıncı elmasları dilediği zaman maaş dolarına çevirebilir.</p>
-            <p>• <span class="highlight">Dönüşüm:</span> 160.000 Elmas = 1 Dolar. 1 Elmas = 0.47 Coin.</p>
-            <p>• <span class="highlight">Aktif Gün:</span> Günde 2 saat mikrofon açmak 1 aktif gün sayılır.</p>
-            <p>• 10 Dolar altı ödemeler sadece <span class="highlight">Altın Coin</span> olarak yapılır.</p>
-            <p>• <span class="highlight">Yasaklar:</span> Sahte hesap, başka uygulamaya davet veya kötü niyetli iadelerde maaş kesilir ve cihaz yasaklanır.</p>
-            <p>• Elmaslar bir kez çevrildikten sonra geri alınamaz ve bakiyeden düşülür.</p>
+    <div class="rules-wrapper">
+        <div class="rules-title">KURALLAR</div>
+        
+        <div class="rules-section">
+            <span class="rules-section-title">Coin ve Elmas Detayları</span>
+            <div class="rules-content">
+                <p><b>Resmi Kur:</b> 1 Dolar = 70.000 Coin (Daha iyi fiyatlar için coin satıcılarıyla iletişime geçin).</p>
+                <p><b>Yayıncı Kazancı:</b> 1 Coinlik normal hediye = 1 Puan & 1 Elmas (Normal hediyelerden %100 Puan&Elmas).</p>
+                <p>10 Coinlik şanslı hediye = 1 Puan (Şanslı hediyelerden %10 Puan, elmas hesaplaması yok).</p>
+                <p>Yayıncı, elmasları dilediği zaman maaş dolarına çevirebilir.</p>
+                <p>Acente/BD, maaşı yayıncıların puanlarına göre ayın 1. gününde alır.</p>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <span class="rules-section-title">Elmas Çekim Kuralı</span>
+            <div class="rules-content">
+                <p>Yayıncılar elmasları diledikleri zaman coinlere veya maaş dolarına çevirebilirler.</p>
+                <p>Elmaslar çevrildikten sonra, ilgili elmaslar düşülecektir ve geri alınamaz.</p>
+                <p><b>160.000 Elmas = 1 Dolar.</b></p>
+                <p><b>1 Elmas = 0.47 Coin.</b></p>
+            </div>
+        </div>
+
+        <div class="rules-section">
+            <span class="rules-section-title">Maaş Detayları</span>
+            <div class="rules-content">
+                <p>Yayıncılar maaşı altın coin veya nakit olarak çekebilirler; eğer yayıncı maaşı nakit olarak almak isterse, maaşı takım satıcısına aktarmayı seçebilir.</p>
+                <p>Maaş 10 Doların altındaysa sadece altın coin ödenir.</p>
+                <p><b>Odada kalın ve günde 2 saat mikrofonu açın, bu 1 geçerli aktif gün sayılacaktır.</b></p>
+                <p>Herhangi bir ihlal varsa (birden fazla hesap, sahte işe alım, kötü niyetli iade vb.), yetkililer işbirliğini sonlandırma ve maaşı kesme hakkına sahiptir.</p>
+                <p>Mina kullanıcılarını başka uygulamalara davet edenlerin <span class="important">cihazı yasaklanır</span> ve maaşlarına el konulur.</p>
+                <p>Birden fazla hesapla farklı takımlara katılım yasaktır; tespit edilirse ödemeler durdurulur.</p>
+            </div>
         </div>
     </div>
 
-    <div style="margin: 40px 0; color: #444; font-size: 10px;">MINAVOICE OFFICIAL SUPPORT</div>
+    <div style="color: #444; font-size: 10px; margin-bottom: 20px;">MINAVOICE OFFICIAL SUPPORT</div>
 </body>
 </html>
-
